@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc_mybatis.mapper.UserMapper">
+	<resultMap type="User" id="userResult">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="pwd" property="password" />
+		<result column="create_time" property="time" />
+		<result column="groupId" property="groupId" />
+	</resultMap>
+	<select id="login" resultMap="userResult">
+		select * from
+		user
+		where
+		name=#{name}
+		and pwd=#{password}
+	</select>
+
+	<select id="getAllUsers" resultType="com.springmvc_mybatis.bean.User" >
+		select * from user
+	</select>
+	
+	<select id="findOne" resultMap="userResult">
+		select * from user
+		where name=#{name}
+	</select>
+	
+	<delete id="deleteUser" >
+		delete from user
+		where name=#{name}
+	</delete>
+	
+	<update id="updateUser">
+		update user set pwd=#{pwd},create_time=#{create_time},groupId=#{groupId} where name=#{name}
+	</update>
+	
+	<insert id="insertUser">
+		insert into user(name,pwd,create_time,groupId)values(#{name},#{pwd},#{create_time},#{groupId})
+	</insert>
+</mapper>
+<!-- error ,,,,resultMap wrong to resultType... -->

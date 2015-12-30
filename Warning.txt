@@ -1,0 +1,26 @@
+如果出现mybatis异常 Mapped Statements collection does not contain value for问题的话，
+Mapped Statements collection does not contain value for后面是什么类什么方法之类的： 
+错误原因有几种： 
+1、mapper.xml中没有加入namespace ！！！！
+2、mapper.xml中的方法和接口mapper的方法不对应 ！！！
+3、mapper.xml没有加入到mybatis-config.xml中(即总的配置文件)，例外：配置了mapper文件的包路径的除外 ！！！
+4、mapper.xml文件名和所写的mapper名称不相同。 ！！
+5.java文件和xml文件的名称不一致 ！
+
+6.可能是你的controller 或者说是handler 有问题！！
+
+jsp 文件的位置要特别注意！ index，一般在WebContent下！！！
+
+WEB-INF 下的文件需要服务器内部调用，不能直接访问！
+
+
+HTTP Status 500 - Request processing failed; nested exception is java.lang.IllegalArgumentException: 
+Mapped Statements collection does not contain value for com.springmvc_mybatis.mapper.UserMapper.login
+
+！！！少了这个<property name="configLocation" value="classpath:mybatis-config.xml" />
+
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource"/>
+		<property name="typeAliasesPackage" value="com.springmvc_mybatis.bean"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+</bean>

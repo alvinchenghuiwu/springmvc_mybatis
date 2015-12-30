@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springmvc_mybatis.mapper.GroupUserMapper">
+	<select id="findAllGroupUser" resultType="com.springmvc_mybatis.bean.GroupUser" >
+		select groupUser.groupId,groupUser.groupName from groupUser;
+	</select>
+	
+	<insert id="insertGroupUser" parameterType="com.springmvc_mybatis.bean.GroupUser">
+		INSERT INTO groupUser(groupId,groupName) VALUES(#{groupId},#{groupName})
+	</insert>
+
+	<select id="getVoById" parameterType="int" resultType="com.springmvc_mybatis.bean.GroupUserVo" >
+		SELECT user.id, user.name,user.pwd,user.create_time,user.groupId,groupUser.groupName FROM USER LEFT JOIN groupUser USING(groupId) WHERE groupId=#{groupId};
+	</select>
+	
+	<select id="getGroupUserById" parameterType="int" resultType="com.springmvc_mybatis.bean.GroupUser" >
+		select groupUser.groupId,groupUser.groupName from groupUser where groupId=#{groupId};
+	</select>
+</mapper>
