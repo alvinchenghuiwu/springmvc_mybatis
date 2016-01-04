@@ -34,8 +34,7 @@ public class TestSimpleMyBatis {
 	
 	@Test 
 	public void insert() throws ParseException{
-		userMapper.insertUser("Tom","2344",new Date(),2);
-		this.findAll();
+		System.out.println(userMapper.insertUser("SAA","2344",new Date(),2));
 	}
 	
 	@Test
@@ -89,6 +88,12 @@ public class TestSimpleMyBatis {
 	@Test
 	public void getVoById(){
 		System.out.println(groupUserMapper.getVoById(1));
+	}
+	
+	@Test
+	public void findUserByFirstLetter(){
+		//char c = 'c';
+		System.out.println(userMapper.findUserByFirstLetter('c'));
 	}
 	
 }

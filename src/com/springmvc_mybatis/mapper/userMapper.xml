@@ -34,8 +34,15 @@
 		update user set pwd=#{pwd},create_time=#{create_time},groupId=#{groupId} where name=#{name}
 	</update>
 	
-	<insert id="insertUser">
-		insert into user(name,pwd,create_time,groupId)values(#{name},#{pwd},#{create_time},#{groupId})
+	<insert id="insertUser" >
+		<!-- <selectKey keyProperty="id" order="AFTER" resultType="int">
+			select @@IDENTITY
+		</selectKey> -->
+		 insert into user(name,pwd,create_time,groupId)values(#{name},#{pwd},#{create_time},#{groupId})
 	</insert>
+	
+	 <select id="findUserByFirstLetter" resultType="com.springmvc_mybatis.bean.User">
+	 	SELECT * FROM user WHERE name REGEXP "^${letter}" 
+	</select>
 </mapper>
 <!-- error ,,,,resultMap wrong to resultType... -->

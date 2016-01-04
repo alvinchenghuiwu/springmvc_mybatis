@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/test/test.jsp=UTF-8
 encoding//src/com/springmvc_mybatis/mapper/UserMapper.java=UTF-8
 encoding//src/com/springmvc_mybatis/test/TestSimpleMyBatis.java=UTF-8
 encoding/Warning.txt=UTF-8

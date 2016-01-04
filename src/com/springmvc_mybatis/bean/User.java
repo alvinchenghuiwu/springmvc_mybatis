@@ -71,8 +71,8 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password
-				+ ", time=" + time + ", groupId="+ groupId + "]";
+		return "{id=" + id + ", name=" + name + ", password=" + password
+				+ ", time=" + time + ", groupId="+ groupId + "}";
 	}
 
 	public Integer getGroupId() {

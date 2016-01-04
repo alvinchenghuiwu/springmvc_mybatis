@@ -16,7 +16,7 @@ public interface UserMapper {
 
 	Set<User> getAllUsers();
 	
-	void insertUser(@Param(value = "name")String name, @Param(value = "pwd")String pwd,
+	int insertUser(@Param(value = "name")String name, @Param(value = "pwd")String pwd,
 			@Param(value = "create_time")java.util.Date create_time,@Param(value="groupId")int groupId);
 	
 	Set<User> findOne(@Param(value = "name")String name);
@@ -25,5 +25,7 @@ public interface UserMapper {
 	
 	void updateUser(@Param(value = "name")String name, @Param(value = "pwd")String pwd,
 			@Param(value = "create_time")java.util.Date create_time, @Param(value="groupId")int groupId);
+	
+	List<User> findUserByFirstLetter(@Param(value= "letter") char letter);
 
 }
